@@ -2,12 +2,20 @@ export default function ProjectCard({ project }) {
   return (
     <article className="border rounded-lg overflow-hidden bg-white dark:bg-gray-800 shadow-sm">
       {project.image && (
-        <img 
-          src={project.image} 
-          alt={`${project.title} preview`} 
-          className="w-full h-48 object-cover"
-          loading="lazy"
-        />
+        <picture>
+          <source
+            srcSet={project.image.replace('.png', '.webp')}
+            type="image/webp"
+          />
+          <img 
+            src={project.image} 
+            alt={`${project.title} preview`} 
+            className="w-full h-48 object-cover"
+            loading="lazy"
+            width="800"
+            height="600"
+          />
+        </picture>
       )}
       <div className="p-4">
         <h3 className="text-lg font-semibold mb-2">{project.title}</h3>

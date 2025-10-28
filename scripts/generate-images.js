@@ -99,9 +99,15 @@ async function generateImages() {
       console.log('Generated favicon.png and og-image.png');
     }
 
-    await sharp(svgBuffer)
-      .png()
-      .toFile(path.join(outputDir, `${img.name}.png`));
+    // Generate both WebP and PNG formats for better performance
+    await Promise.all([
+      sharp(svgBuffer)
+        .webp({ quality: 85 })
+        .toFile(path.join(outputDir, `${img.name}.webp`)),
+      sharp(svgBuffer)
+        .png({ compressionLevel: 9 })
+        .toFile(path.join(outputDir, `${img.name}.png`))
+    ]);
 
     console.log(`Generated ${img.name}.png`);
   }
