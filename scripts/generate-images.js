@@ -40,6 +40,7 @@ async function generateImages() {
   }
 
   for (const img of images) {
+    // Generate main image
     const svgBuffer = Buffer.from(`
       <svg width="${img.width}" height="${img.height}" xmlns="http://www.w3.org/2000/svg">
         <rect width="100%" height="100%" fill="${img.background}"/>
@@ -54,6 +55,49 @@ async function generateImages() {
         >${img.text}</text>
       </svg>
     `);
+
+    // Also generate favicon and OG image
+    if (img.name === 'ecommerce') {
+      const faviconSvg = Buffer.from(`
+        <svg width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+          <rect width="100%" height="100%" fill="#1a365d"/>
+          <text
+            x="50%"
+            y="50%"
+            font-family="Arial"
+            font-size="20"
+            fill="white"
+            text-anchor="middle"
+            dominant-baseline="middle"
+          >P</text>
+        </svg>
+      `);
+
+      const ogImageSvg = Buffer.from(`
+        <svg width="1200" height="630" xmlns="http://www.w3.org/2000/svg">
+          <rect width="100%" height="100%" fill="#1a365d"/>
+          <text
+            x="50%"
+            y="50%"
+            font-family="Arial"
+            font-size="72"
+            fill="white"
+            text-anchor="middle"
+            dominant-baseline="middle"
+          >Portfolio</text>
+        </svg>
+      `);
+
+      await sharp(faviconSvg)
+        .png()
+        .toFile(path.join(outputDir, 'favicon.png'));
+
+      await sharp(ogImageSvg)
+        .png()
+        .toFile(path.join(outputDir, 'og-image.png'));
+
+      console.log('Generated favicon.png and og-image.png');
+    }
 
     await sharp(svgBuffer)
       .png()
