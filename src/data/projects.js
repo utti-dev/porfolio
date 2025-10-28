@@ -5,7 +5,7 @@ export const projects = [
     desc: "A full-stack e-commerce platform built with React and Node.js. Features include user authentication, product catalog, shopping cart, and payment integration.",
     tech: "React, Node.js, Express, MongoDB, Stripe",
     url: "https://github.com/utti-dev/ecommerce-platform",
-    image: "/projects/ecommerce.webp"
+    image: "/images/ecommerce.png"
   },
   {
     id: 2,
@@ -13,7 +13,7 @@ export const projects = [
     desc: "Real-time weather application showing current conditions and forecasts. Uses OpenWeather API with dynamic data visualization.",
     tech: "React, Chart.js, Tailwind CSS, OpenWeather API",
     url: "https://github.com/utti-dev/weather-dashboard",
-    image: "/projects/weather.webp"
+    image: "/images/weather.png"
   },
   {
     id: 3,
@@ -21,6 +21,6 @@ export const projects = [
     desc: "A Kanban-style task management application with drag-and-drop functionality, team collaboration features, and real-time updates.",
     tech: "React, Firebase, Redux, Material-UI",
     url: "https://github.com/utti-dev/task-manager",
-    image: "/projects/tasks.webp"
+    image: "/images/tasks.png"
   }
 ]
