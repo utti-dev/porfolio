@@ -1,7 +1,7 @@
 import { Suspense } from 'react'
 import ErrorBoundary from './components/ErrorBoundary'
 import LoadingSpinner from './components/LoadingSpinner'
-import { lazyLoad } from './utils/lazyLoad'
+import { lazyLoad } from './utils/lazyLoad.jsx'
 import './App.css'
 
 // Lazy load components
