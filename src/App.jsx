@@ -1,9 +1,15 @@
-import Header from './components/Header'
-import Footer from './components/Footer'
-import ProjectCard from './components/ProjectCard'
-import Contact from './components/Contact'
-import About from './pages/About'
+import { Suspense } from 'react'
+import ErrorBoundary from './components/ErrorBoundary'
+import LoadingSpinner from './components/LoadingSpinner'
+import { lazyLoad } from './utils/lazyLoad'
 import './App.css'
+
+// Lazy load components
+const Header = lazyLoad(() => import('./components/Header'))
+const Footer = lazyLoad(() => import('./components/Footer'))
+const ProjectCard = lazyLoad(() => import('./components/ProjectCard'))
+const Contact = lazyLoad(() => import('./components/Contact'))
+const About = lazyLoad(() => import('./pages/About'))
 
 function App() {
   const projects = [
@@ -24,8 +30,9 @@ function App() {
   ]
 
   return (
-    <div className="min-h-screen flex flex-col bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100">
-      <Header />
+    <ErrorBoundary>
+      <div className="min-h-screen flex flex-col bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100">
+        <Header />
       <main className="container mx-auto px-4 py-16 flex-1">
         <section className="max-w-3xl">
           <h1 className="text-4xl font-extrabold mb-4">Your Name</h1>
@@ -51,6 +58,7 @@ function App() {
       </main>
       <Footer />
     </div>
+    </ErrorBoundary>
   )
 }
 
