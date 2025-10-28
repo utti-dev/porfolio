@@ -1,6 +1,8 @@
 import Header from './components/Header'
 import Footer from './components/Footer'
 import ProjectCard from './components/ProjectCard'
+import Contact from './components/Contact'
+import About from './pages/About'
 import './App.css'
 
 function App() {
@@ -39,10 +41,12 @@ function App() {
           </div>
         </section>
 
-        <section className="mt-12 max-w-xl">
-          <h2 className="text-2xl font-semibold mb-4">Contact</h2>
-          <p className="mb-4">Use the contact form after deployment or list an email here.</p>
-          <a href="#" className="inline-block bg-indigo-600 text-white px-4 py-2 rounded hover:bg-indigo-500">Get in touch</a>
+        <section className="mt-12">
+          <About />
+        </section>
+
+        <section className="mt-12">
+          <Contact />
         </section>
       </main>
       <Footer />
