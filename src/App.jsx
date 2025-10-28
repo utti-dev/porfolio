@@ -15,18 +15,28 @@ function App() {
   const projects = [
     {
       id: 1,
-      title: 'Placeholder Project',
-      desc: 'A short description of the project. Replace with your project details.',
-      tech: 'React, Vite, Tailwind',
-      url: '#',
+      title: 'E-commerce Platform',
+      desc: 'A full-stack e-commerce solution with real-time inventory management, secure payments, and an intuitive admin dashboard. Features include user authentication, product search with filters, and order tracking.',
+      tech: 'React, Node.js, Express, MongoDB, Stripe API',
+      url: 'https://github.com/utti-dev/ecommerce-platform',
+      image: '/images/ecommerce.png'
     },
     {
       id: 2,
-      title: 'Another Project',
-      desc: 'Another example project. Replace or remove as needed.',
-      tech: 'JavaScript, CSS',
-      url: '#',
+      title: 'Weather Dashboard',
+      desc: 'Interactive weather application providing real-time forecasts, historical data analysis, and location-based weather alerts. Includes dynamic charts and responsive design.',
+      tech: 'React, Chart.js, Tailwind CSS, OpenWeather API',
+      url: 'https://github.com/utti-dev/weather-dashboard',
+      image: '/images/weather.png'
     },
+    {
+      id: 3,
+      title: 'Task Management System',
+      desc: 'Collaborative task management platform with real-time updates, drag-and-drop organization, and team workflow automation. Includes progress tracking and deadline notifications.',
+      tech: 'React, Firebase, Redux, Material-UI',
+      url: 'https://github.com/utti-dev/task-manager',
+      image: '/images/tasks.png'
+    }
   ]
 
   return (
@@ -39,9 +49,10 @@ function App() {
           <p className="text-lg text-gray-600 dark:text-gray-300">A short bio or tagline goes here. Tell visitors who you are and what you build.</p>
         </section>
 
-        <section className="mt-12">
-          <h2 className="text-2xl font-semibold mb-6">Projects</h2>
-          <div className="grid gap-6 sm:grid-cols-2">
+        <section className="mt-16">
+          <h2 className="text-3xl font-bold mb-2">Featured Projects</h2>
+          <p className="text-gray-600 dark:text-gray-400 mb-8">A selection of my recent development work</p>
+          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
             {projects.map((p) => (
               <ProjectCard key={p.id} project={p} />
             ))}
